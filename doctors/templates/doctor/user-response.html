@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>User Response</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6">
+        <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg">
+            <h2 class="text-2xl font-bold mb-6 text-gray-700 text-center">User Responses</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full border-collapse border border-gray-300 rounded-lg">
+                    <thead>
+                        <tr class="bg-blue-200">
+                            <th class="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-600">Question</th>
+                            <th class="border border-gray-300 px-4 py-2 text-left font-semibold text-gray-600">Answer  </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you often feel hopeless or lose interest in activities you used to enjoy?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question1 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you experience excessive worry or fear?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question2 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you find it difficult to trust people due to past experiences?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question3 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you experience mood swings, ranging from extreme highs to extreme lows?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question4 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you have intrusive thoughts or hear voices that others don’t?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question5 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you often feel fatigued or have trouble sleeping?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question6 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you find it hard to concentrate or make decisions?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question7 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you avoid social interactions or feel isolated?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question8 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you experience irrational fears or phobias?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question9 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you have sudden outbursts of anger or irritability?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question10 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you feel numb or disconnected from reality?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question11 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Question 12Do you often feel guilty or blame yourself for things outside your control?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question12 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you experience repetitive behaviors or obsessive thoughts?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question13 }}</td>
+                        </tr>
+                        <tr class="hover:bg-gray-100">
+                            <td class="border border-gray-300 px-4 py-2">Do you have difficulty managing daily responsibilities or tasks?</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ user.question14 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-bold mt-6 text-gray-700">Provide Your Response</h3>
+            <form method="POST" action="/doctor/response-to-user/{{user.user.id}}" class="mt-4 bg-blue-50 p-4 rounded-lg shadow">
+                {% csrf_token %}
+                <textarea name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your response here..." required></textarea>
+                <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Respond</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

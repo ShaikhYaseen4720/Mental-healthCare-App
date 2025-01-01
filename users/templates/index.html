@@ -1,0 +1,44 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Mental Health Care App</title>
+    <style>
+        .bg-gradient {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="bg-gradient min-h-screen flex flex-col">
+        <nav class="bg-white p-4 shadow-lg">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">
+                    <a href="#">MindCare</a>
+                </div>
+                <div class="space-x-6 text-lg">
+                    <a href="{% url 'login' %}" class="text-blue-600 hover:text-blue-800">Login</a>
+                    <a href="{% url 'register' %}" class="text-blue-600 hover:text-blue-800">Register</a>
+                    <a href="{% url 'doctorLogin' %}" class="text-blue-600 hover:text-blue-800">Doctor Login</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex flex-1 justify-center items-center bg-cover bg-center text-white py-24" style="background-image: url('https://images.unsplash.com/photo-1506748686211-0bc764465465');">
+            <div class="text-center space-y-6">
+                <h1 class="text-5xl font-extrabold">Welcome to MindCare</h1>
+                <p class="text-xl">A place for mental wellness and growth. Start your journey today!</p>
+                <div class="mt-8 space-x-4">
+                    <a href="{% url 'login' %}" class="py-3 px-6 text-xl font-semibold bg-blue-600 rounded-md text-white hover:bg-blue-700 transition">User Login</a>
+                    <a href="{% url 'register' %}" class="py-3 px-6 text-xl font-semibold bg-green-600 rounded-md text-white hover:bg-green-700 transition">User Register</a>
+                    <a href="{% url 'doctorLogin' %}" class="py-3 px-6 text-xl font-semibold bg-purple-600 rounded-md text-white hover:bg-purple-700 transition">Doctor Login</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-gray-800 text-white text-center py-6">
+            <p>&copy; 2024 MindCare. All rights reserved.</p>
+        </footer>
+    </div>
+{% endblock %}
